@@ -8,9 +8,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+
+private const val TAG = "FullscreenActivity"
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -55,6 +58,7 @@ class FullscreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i(TAG, javaClass.simpleName + " onCreate called")
 
         val stringArray = arrayOfNulls<String>(5)
 
@@ -144,5 +148,35 @@ class FullscreenActivity : AppCompatActivity() {
          * and a change of the status and navigation bar.
          */
         private val UI_ANIMATION_DELAY = 300
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, javaClass.simpleName + " onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, javaClass.simpleName +" onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, javaClass.simpleName + " onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, javaClass.simpleName +" onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, javaClass.simpleName + " onDestroy called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, javaClass.simpleName + " onRestart called")
     }
 }
